@@ -1,0 +1,43 @@
+.app {
+  padding: 30px;
+  background-color: #705EDC;
+}
+
+.todo {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+}
+
+
+.text-center, 
+.FormTodo__header {
+  color: white;
+  text-decoration:solid;
+}
+
+.FormTodo__button{
+  margin-top: 8px;
+}
+
+.text-center {
+  margin-top: 16px;
+}
+
+.btn-outline-success {
+  border-color: blue !important;
+  color: blue !important;
+  margin-right: 8px !important
+}
+
+.btn-outline-danger {
+  border-color: orange !important;
+  color: orange !important;
+}
+
+.FormTodo__button {
+  background-color: orange !important;
+  color: purple !important;
+  border-radius: 50px !important;
+}
