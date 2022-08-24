@@ -1,19 +1,14 @@
 
 import React from "react";
 import "./App.css";
-import { Button, Card, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function Todo({ todo, index, markTodo, removeTodo }) {
   return (
-    <div
-      className="todo"
-    >
-      <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
-      <div>
-        <Button variant="outline-success" onClick={() => markTodo(index)}>✓</Button>{' '}
-        <Button variant="outline-danger" onClick={() => removeTodo(index)}>✕</Button>
+    <div className="todo-tasks">
+      <span className="todo-tasks__text" style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
+      <div className="todo-tasks__buttons">
+        <button type="submit" variant="todo-tasks__buttons--success" onClick={() => markTodo(index)}>✓</button>{' '}
+        <button type="submit" variant="todo-tasks__buttons--danger" onClick={() => removeTodo(index)}>✕</button>
       </div>
     </div>
   );
@@ -30,15 +25,13 @@ function FormTodo({ addTodo }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}> 
-    <Form.Group>
-      <Form.Label className="FormTodo__header"><b>Add Todo</b></Form.Label>
-      <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Add new todo" />
-    </Form.Group>
-    <Button className="FormTodo__button" variant="primary mb-3" type="submit">
-      Submit
-    </Button>
-  </Form>
+    <form onSubmit={handleSubmit} className="addtodos"> 
+      <label className="form-label"><b>Add Todo</b></label>
+      <input type="text" className="form-input" value={value} onChange={e => setValue(e.target.value)} placeholder="Add new todo" />
+      <button className="form-button" variant="primary mb-3" type="submit">
+        Submit
+      </button>
+    </form>
   );
 }
 
@@ -50,7 +43,6 @@ function App() {
     }
   ]);
   
-
   const addTodo = text => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
@@ -70,25 +62,23 @@ function App() {
 
   return (
     <div className="app">
-      <div className="container">
-        <h1 className="text-center">My Todo List</h1>
-        <FormTodo addTodo={addTodo} />
+      <div className="app-container">
+        <h1 className="app-header">My Todo List</h1>
+        <FormTodo addTodo={addTodo}/>
         <div>
           {todos.map((todo, index) => (
-            <Card>
-              <Card.Body>
-                <Todo
+            <div className="app-wraper">
+              <Todo
                 key={index}
                 index={index}
                 todo={todo}
                 markTodo={markTodo}
                 removeTodo={removeTodo}
-                />
-              </Card.Body>
-            </Card>
+              />
+            </div>
           ))}
         </div>
-        <h3 className="text-center">You have {todos.length} {todos.length > 1 || todos.length === 0 ?'tasks': 'task'} today</h3>
+        <h3 className="app-header">You have {todos.length} {todos.length > 1 || todos.length === 0 ?'tasks': 'task'} today</h3>
       </div>
     </div>
   );
