@@ -1,42 +1,74 @@
 .app {
   padding: 30px;
   background-color: #705EDC;
+
 }
 
-.todo {
-  align-items: center;
+.todo-tasks {
+  align-items:center;
+  justify-content:center;
   display: flex;
   font-size: 18px;
-  justify-content: space-between;
+  
 }
 
+.todo-tasks__buttons {
+  flex: 5;
+  text-align: center;
+  align-items: center;
+}
 
-.text-center, 
-.FormTodo__header {
+.todo-tasks__text {
+  text-align: center;
+  align-items: center;
+  flex: 5;
+  color: white
+}
+
+.app-header, 
+.form-label {
   color: white;
   text-decoration:solid;
+  text-align: center;
+  padding: 20px;
 }
 
-.FormTodo__button{
+.addtodos {
+  text-align: center;
+  align-items: center;
+}
+
+.form-input{
+  padding: 5px;
+}
+
+.todos{
+  text-align: center;
+  align-items: center;
+}
+
+.form-button{
   margin-top: 8px;
+  margin-left: 8px;
+  padding: 8px;
 }
 
-.text-center {
+.app-header {
   margin-top: 16px;
 }
 
-.btn-outline-success {
+.todo-tasks__buttons--success {
   border-color: blue !important;
   color: blue !important;
-  margin-right: 8px !important
+  margin-right: 8px !important;
 }
 
-.btn-outline-danger {
+.todo-tasks__buttons--danger {
   border-color: orange !important;
   color: orange !important;
 }
 
-.FormTodo__button {
+.form-button {
   background-color: orange !important;
   color: purple !important;
   border-radius: 50px !important;
